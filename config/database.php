@@ -44,6 +44,13 @@ return [
     |
     */
 
+    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+    $host = $url["host"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $database = substr($url["path"], 1);
+
     'connections' => [
 
         'sqlite' => [
@@ -54,11 +61,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'mysql://b4eec8457c4f5f:d52ed9c2@us-cdbr-iron-east-04.cleardb.net/heroku_9b1cd6038a47946?reconnect=true'),
+            'host' => $host,
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'heroku_9b1cd6038a47946'),
-            'username' => env('DB_USERNAME', 'b4eec8457c4f5f'),
-            'password' => env('DB_PASSWORD', 'd52ed9c2'),
+            'database' => $database,
+            'username' => $username,
+            'password' => $password,
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
