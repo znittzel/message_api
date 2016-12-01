@@ -7,10 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     protected $fillable = [
-    	"name", "message"
+    	"name", 
+    	"message",
     ];
-
-    public function message_room() {
-    	return $this->belongsTo('App\MessageRoom');
-    }
 }

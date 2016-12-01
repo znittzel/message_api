@@ -23,5 +23,5 @@ Route::get('/messageroom/{id}', 'MessageRoomController@getById');
 Route::post('/messageroom', 'MessageRoomController@store');
 
 // MESSAGE
-Route::get('/message', 'MessageController@getByRoomId');
+Route::get('/message', 'MessageController@get');
 Route::post('/message', 'MessageController@store');
